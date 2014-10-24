@@ -15,16 +15,20 @@
   angular.module('MeuApp').controller('testeCTRL', function($scope) {
     $scope.mensagens = [{
       from: 'viny',
-      text: 'alo'
+      text: 'alo',
+      sent_at: new Date()
     },{
       from: 'bruno',
-      text: 'alo1'
+      text: 'alo1',
+      sent_at: new Date()
     },{
       from: 'viny',
-      text: 'alo2'
+      text: 'alo2',
+      sent_at: new Date()
     },{
       from: 'bruno',
-      text: 'alo3'
+      text: 'alo3',
+      sent_at: new Date()
     }];
     var i = 0;
     $scope.getMessage = function() {
@@ -38,7 +42,7 @@
 <body ng-controller='testeCTRL'>
 <button ng-click='getMessage()'>Nova mensagem</button>
 <ul>
-  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text | makeUppercase}}</div>
+  <li ng-repeat='msg in mensagens'>{{msg.sent_at | date | makeUppercase}} - {{msg.from | makeUppercase}} - {{msg.text | makeUppercase}}</div>
 </ul>
 </body>
 </html>
