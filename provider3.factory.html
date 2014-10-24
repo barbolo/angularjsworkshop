@@ -7,6 +7,8 @@
   angular.module('MeuApp', []);
 
   angular.module('MeuApp').factory('movie', function () {
+    // executa só uma vez e cacheia o retorno
+    console.log('executando');
     return {
       title: 'The Codus'
     }
@@ -16,9 +18,16 @@
     $scope.nome = movie.title;
   });
 
+
+  angular.module('MeuApp').controller('teste2CTRL', function($scope, movie) {
+    $scope.numero = 4;
+    $scope.nome = movie.title;
+  });
+
   </script>
 </head>
 <body>
 <div ng-controller='testeCTRL'>{{nome}}</div>
+<div ng-controller='teste2CTRL'>{{numero}} {{nome}}</div>
 </body>
 </html>
