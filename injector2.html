@@ -9,17 +9,18 @@
   });
   angular.module('MeuApp').value('numeroDeMensagens', 3 );
   angular.module('MeuApp').value('outroValor', 555 );
-  
+
 
   var injector = angular.injector(["MeuApp"]);
- 
-  var funcao = function(chave) {
-    console.log(chave);
+
+  var funcao = function(outroValor, numeroDeMensagens) {
+    console.log(outroValor);
+    console.log(numeroDeMensagens);
   };
-   
-  injector.invoke(funcao);
-  injector.invoke([ 'numeroDeMensagens',  funcao]);
-  funcao.$inject = ['outroValor'];
+
+  // injector.invoke(funcao);
+  // injector.invoke([ 'numeroDeMensagens', 'numeroDeMensagens',  funcao]);
+  // funcao.$inject = [ 'outroValor', 'outroValor'];
   injector.invoke(funcao);
   </script>
 </head>
