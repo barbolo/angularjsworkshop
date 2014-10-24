@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []);
+
+  angular.module('MeuApp').filter('makeUppercase', function () {
+    return function (item) {
+      return item.toUpperCase();
+    };
+  });
+
+  angular.module('MeuApp').controller('testeCTRL', function($scope) {
+    $scope.mensagens = [{
+      from: 'viny',
+      text: 'alo'
+    },{
+      from: 'bruno',
+      text: 'alo1'
+    },{
+      from: 'viny',
+      text: 'alo2'
+    },{
+      from: 'bruno',
+      text: 'alo3'
+    }];
+    var i = 0;
+    $scope.getMessage = function() {
+      $scope.mensagens.push({ from: 'Jose', text: ('Alo' + i)});
+      i++;
+    };
+  });
+
+  </script>
+</head>
+<body ng-controller='testeCTRL'>
+<button ng-click='getMessage()'>Nova mensagem</button>
+<ul>
+  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text | makeUppercase}}</div>
+</ul>
+</body>
+</html>

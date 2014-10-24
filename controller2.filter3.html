@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []);
+  
+  angular.module('MeuApp').filter('startsWithA', function () {
+    return function (items) {
+      return items.filter(function(item) {
+        return /^a/.test(item.text[0]); 
+      });
+    };
+  });
+  angular.module('MeuApp').controller('testeCTRL', function($scope) {
+    $scope.mensagens = [{
+      from: 'viny',
+      text: 'alo'
+    },{
+      from: 'bruno',
+      text: 'alo1'
+    },{
+      from: 'viny',
+      text: 'text'
+    },{
+      from: 'bruno',
+      text: 'text'
+    }];
+    var i = 0;
+    $scope.getMessage = function() {
+      $scope.mensagens.push({ from: 'Jose', text: ('Alo' + i)});
+      i++;
+    };
+  });
+
+  </script>
+</head>
+<body ng-controller='testeCTRL'>
+<button ng-click='getMessage()'>Nova mensagem</button>
+<ul>
+  <li ng-repeat='msg in mensagens | startsWithA '>{{msg.from}} - {{msg.text}}</div>
+</ul>
+</body>
+</html>
