@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []);
+  angular.module('MeuApp').factory('userAPI', function ($http) {
+    // executa só uma vez e cacheia o retorno
+    console.log('executando');
+    return {
+      save: function(user) {
+        console.log(user);
+        console.log("enviarndo para http");
+        // $http.get....
+      }
+    }
+  });
+
+  angular.module('MeuApp').controller('testeCTRL', function($scope, userAPI) {
+    $scope.user = {
+      name: 'Vinicius',
+      age: 34
+    }
+
+    $scope.canShowAge = true;
+
+    $scope.salvar = function() {
+      userAPI.save($scope.user);
+    };
+
+    $scope.mudar = function() {
+      $scope.user.age = 555;
+    }
+
+  });
+
+
+  </script>
+</head>
+<body ng-controller='testeCTRL'>
+  <input type='text' ng-model='user.name'/>
+  <p ng-bind= 'user.name'></p>
+  <p ng-show='user.name.length > 6' ng-bind='user.age'></p>
+  <button ng-click='salvar()'>Salvar</button>
+  <button ng-click='mudar()'>Mudar idade</button>
+  <button ng-click='canShowAge = !canShowAge'>Mostrar idade</button>
+</body>
+</html>
