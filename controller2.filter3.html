@@ -5,11 +5,11 @@
   <script type="text/javascript" src='angular.js'></script>
   <script type="text/javascript">
   angular.module('MeuApp', []);
-  
+
   angular.module('MeuApp').filter('startsWithA', function () {
     return function (items) {
       return items.filter(function(item) {
-        return /^a/.test(item.text[0]); 
+        return /^a/.test(item.text[0]);
       });
     };
   });
@@ -38,8 +38,10 @@
 </head>
 <body ng-controller='testeCTRL'>
 <button ng-click='getMessage()'>Nova mensagem</button>
+<p ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</p>
+<hr/>
 <ul>
-  <li ng-repeat='msg in mensagens | startsWithA '>{{msg.from}} - {{msg.text}}</div>
+  <li ng-repeat='msg in mensagens | startsWithA '>{{msg.from}} - {{msg.text}}</li>
 </ul>
 </body>
 </html>

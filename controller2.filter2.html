@@ -5,9 +5,10 @@
   <script type="text/javascript" src='angular.js'></script>
   <script type="text/javascript">
   angular.module('MeuApp', []);
-  
+
   angular.module('MeuApp').filter('concat', function () {
     return function (item, value) {
+      console.log('teste');
       return item + value;
     };
   });
@@ -38,7 +39,7 @@
 <body ng-controller='testeCTRL'>
 <button ng-click='getMessage()'>Nova mensagem</button>
 <ul>
-  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text | concat:'lol'}}</div>
+  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text | concat:'---'}}</div>
 </ul>
 </body>
 </html>
