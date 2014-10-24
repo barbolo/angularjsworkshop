@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []).config(function(movieProvider) {
+    movieProvider.setVersion('7337');
+  });
+
+  angular.module('MeuApp').provider('movie', function () {
+    var version;
+    return {
+      setVersion: function (value) {
+        version = value;
+      },
+      $get: function () {
+        return {
+          title: 'The Codus' + ' ' + version
+        };
+      }
+    }
+  });
+
+  angular.module('MeuApp').controller('testeCTRL', function($scope, movie) {
+    $scope.nome = movie.title;
+  });
+
+  </script>
+</head>
+<body>
+<div ng-controller='testeCTRL'>{{nome}}</div>
+</body>
+</html>
