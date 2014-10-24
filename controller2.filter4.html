@@ -5,11 +5,11 @@
   <script type="text/javascript" src='angular.js'></script>
   <script type="text/javascript">
   angular.module('MeuApp', []);
-  
+
   angular.module('MeuApp').filter('startsWith', function () {
     return function (items, letter) {
       return items.filter(function(item) {
-        return item.text[0] == letter; 
+        return item.text[0] == letter;
       });
     };
   });
@@ -22,7 +22,7 @@
       text: 'alo1'
     },{
       from: 'viny',
-      text: 'text'
+      text: 't1ext'
     },{
       from: 'bruno',
       text: 'text'
@@ -38,8 +38,10 @@
 </head>
 <body ng-controller='testeCTRL'>
 <button ng-click='getMessage()'>Nova mensagem</button>
+<p ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</p>
+<hr/>
 <ul>
-  <li ng-repeat='msg in mensagens | startsWith:"t" '>{{msg.from}} - {{msg.text}}</div>
+  <li ng-repeat='msg in mensagens | startsWith:"t" '>{{msg.from}} - {{msg.text}}</li>
 </ul>
 </body>
 </html>
