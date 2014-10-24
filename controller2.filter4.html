@@ -36,12 +36,17 @@
 
   </script>
 </head>
-<body ng-controller='testeCTRL'>
-<button ng-click='getMessage()'>Nova mensagem</button>
-<p ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</p>
-<hr/>
-<ul>
-  <li ng-repeat='msg in mensagens | startsWith:"t" '>{{msg.from}} - {{msg.text}}</li>
-</ul>
+<body>
+<div ng-controller='testeCTRL'>
+  <button ng-click='getMessage()'>Nova mensagem</button>
+  <p ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</p>
+  <hr/>
+  <ul>
+    <li ng-repeat='msg in mensagens | startsWith:"t" '>{{msg.from}} - {{msg.text}}</li>
+  </ul>
+</div>
+<div ng-controller='testeCTRL'>
+  <p ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</p>
+</div>
 </body>
 </html>
