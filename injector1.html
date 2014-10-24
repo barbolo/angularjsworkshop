@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []).config(function($provide) {
+    $provide.value('chave', 'valor');
+  });
+
+  angular.module('MeuApp').value('numeroDeMensagens', 3 );
+
+  // var injector = angular.element(document.body).injector()
+  // injector.get('numeroDeMensagens');
+  </script>
+</head>
+<body>
+</body>
+</html>
