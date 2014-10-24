@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []).config(function($provide) {
+    $provide.value('chave', 'valor');
+  });
+  angular.module('MeuApp').value('numeroDeMensagens', 3 );
+  angular.module('MeuApp').value('outroValor', 555 );
+  
+
+  var injector = angular.injector(["MeuApp"]);
+ 
+  var funcao = function(chave) {
+    console.log(chave);
+  };
+   
+  injector.invoke(funcao);
+  injector.invoke([ 'numeroDeMensagens',  funcao]);
+  funcao.$inject = ['outroValor'];
+  injector.invoke(funcao);
+  </script>
+</head>
+<body>
+</body>
+</html>
