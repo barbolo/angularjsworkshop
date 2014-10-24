@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []);
+
+  angular.module('MeuApp').controller('testeCTRL', function($scope) {
+    $scope.numero = 0;
+    $scope.mensagens = [{
+      from: 'viny',
+      text: 'alo'
+    },{
+      from: 'bruno',
+      text: 'alo1'
+    },{
+      from: 'viny',
+      text: 'alo2'
+    },{
+      from: 'bruno',
+      text: 'alo3'
+    }];
+
+    $scope.getMessage = function() {
+      setTimeout(function() {
+        $scope.mensagens.push({ from: 'Jose', text: ('Alo' + $scope.numero)});
+        $scope.numero += 1;
+      }, 2000);
+    };
+  });
+
+  </script>
+</head>
+<body ng-controller='testeCTRL'>
+<p>{{numero}}</p>
+<button ng-click='numero = numero + 1'>+</button>
+<button ng-click='getMessage()'>Nova mensagem</button>
+<ul>
+  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</div>
+</ul>
+</body>
+</html>

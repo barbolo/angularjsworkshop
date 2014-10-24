@@ -3,41 +3,34 @@
 <head>
   <title></title>
   <script type="text/javascript" src='angular.js'></script>
-  <script type="text/javascript">
-  angular.module('MeuApp', []);
+  <script>
+    angular.module("MeuApp", []);
+    angular.module("MeuApp").controller("myController", function($scope) {
 
-  angular.module('MeuApp').controller('testeCTRL', function($scope) {
-    $scope.numero = 0;
-    $scope.mensagens = [{
-      from: 'viny',
-      text: 'alo'
-    },{
-      from: 'bruno',
-      text: 'alo1'
-    },{
-      from: 'viny',
-      text: 'alo2'
-    },{
-      from: 'bruno',
-      text: 'alo3'
-    }];
+    $scope.data = { time : new Date() };
 
-    $scope.getMessage = function() {
-      setTimeout(function() {
-        $scope.mensagens.push({ from: 'Jose', text: ('Alo' + $scope.numero)});
-        $scope.numero += 1;
-      }, 2000);
-    };
-  });
+    $scope.updateTime = function() {
+      $scope.data.time = new Date();
+    }
 
+    document.getElementById("updateTimeButton")
+            .addEventListener('click', function() {
+              console.log("update time clicked");
+              $scope.data.time = new Date();
+              $scope.$digest();
+            });
+    });
   </script>
 </head>
-<body ng-controller='testeCTRL'>
-<p>{{numero}}</p>
-<button ng-click='numero = numero + 1'>+</button>
-<button ng-click='getMessage()'>Nova mensagem</button>
-<ul>
-  <li ng-repeat='msg in mensagens'>{{msg.from}} - {{msg.text}}</div>
-</ul>
-</body>
+<body>
+  <div ng-controller="myController">
+      {{data.time}}
+
+      <br/>
+      <button ng-click="updateTime()">update time - ng-click</button>
+      <button id="updateTimeButton">update time</button>
+  </div>
+
+
+
 </html>
