@@ -5,11 +5,12 @@
   <script type="text/javascript" src='angular.js'></script>
   <script type="text/javascript">
   angular.module('MeuApp', []).config(function($provide) {
+    console.log('3')
     $provide.value('chave', 'valor');
   });
-
+  console.log('1')
   angular.module('MeuApp').value('numeroDeMensagens', 3 );
-
+  console.log('2')
   // var injector = angular.element(document.body).injector()
   // injector.get('numeroDeMensagens');
   </script>

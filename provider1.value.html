@@ -4,10 +4,7 @@
   <title></title>
   <script type="text/javascript" src='angular.js'></script>
   <script type="text/javascript">
-  angular.module('MeuApp', []).config(function($provide) {
-    $provide.value('chave', 'valor');
-  });
-
+  angular.module('MeuApp', [])
   angular.module('MeuApp').value('numeroDeMensagens', 3 );
 
   angular.module('MeuApp').controller('testeCTRL', function($scope, numeroDeMensagens) {
