@@ -7,10 +7,14 @@
   angular.module('MeuApp', []);
 
   angular.module('MeuApp').service('movie', function () {
+    console.log('teste')
     this.title= 'The Codus';
   });
 
   angular.module('MeuApp').controller('testeCTRL', function($scope, movie) {
+    $scope.nome = movie.title;
+  });
+  angular.module('MeuApp').controller('teste2CTRL', function($scope, movie) {
     $scope.nome = movie.title;
   });
 
@@ -18,5 +22,7 @@
 </head>
 <body>
 <div ng-controller='testeCTRL'>{{nome}}</div>
+
+<div ng-controller='teste2CTRL'>{{nome}}</div>
 </body>
 </html>
