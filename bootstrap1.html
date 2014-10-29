@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='MeuApp'>
+<head>
+  <title></title>
+  <script type="text/javascript" src='angular.js'></script>
+  <script type="text/javascript">
+  angular.module('MeuApp', []).config(function() {
+    console.log('config 1')
+  });
+
+  angular.module('MeuApp').run(function() {
+    console.log('run 1')
+  });
+
+  angular.module('MeuApp').config(function() {
+    console.log('config 1')
+  });
+
+  console.log('fora 1');
+  console.log('fora 2');
+  // var injector = angular.element(document.body).injector()
+  // injector.get('numeroDeMensagens');
+  </script>
+</head>
+<body>
+</body>
+</html>
